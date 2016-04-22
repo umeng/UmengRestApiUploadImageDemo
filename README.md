@@ -4,6 +4,7 @@ Java版RestAPi使用说明
 具体使用方法请参见/src/com/company/umeng/Main.java
 
 <pre><code>
+//在使用前需要先配置APP_KEY和APP_SECRECT
 UmengHttpClient.APP_KEY = "换成你的app key";
 UmengHttpClient.APP_SECRECT = "换成你的app secrect";
 </code></pre>
