@@ -1,5 +1,6 @@
 package com.company.umeng;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import javax.net.ssl.HttpsURLConnection;
@@ -27,6 +28,7 @@ public class UmengHttpClient {
     public static String APP_KEY = null;
 
     public static String APP_SECRECT = null;
+
     public enum HttpMethod {
         POST, GET, PUT, DELETE
     }
@@ -122,14 +124,24 @@ public class UmengHttpClient {
      * @return getting access token for the application
      */
     public String accessTokenRequest(Map<String, Object> data, String url, String APP_SECRET) {
-        String encry_data = null;
-        JSONObject jsonObject = new JSONObject(data);
-        String stringData = jsonObject.toString();
-        System.out.println(stringData);
-        encry_data = AESUtils.getEncryptedMap(stringData.length()+stringData, APP_SECRET);
-        HashMap<String, Object> hashMap = new HashMap<String, Object>();
-        hashMap.put("encrypted_data", encry_data);
-        return sentRequest(url, HttpMethod.POST, hashMap);
+        String stringData = "";
+        try {
+            JSONObject jsonObject = new JSONObject(data);
+
+            if (jsonObject == null) {
+                return null;
+            }
+            stringData = jsonObject.toString();
+            String encry_data = AESUtils.getEncryptedMap(stringData.length() + stringData, APP_SECRET);
+            HashMap<String, Object> hashMap = new HashMap<String, Object>();
+            hashMap.put("encrypted_data", encry_data);
+            return sentRequest(url, HttpMethod.POST, hashMap);
+        } catch (NullPointerException e) {
+            System.out.println("access token request ERROR:" + e.getMessage());
+        } catch (JSONException e) {
+            System.out.println("access token request ERROR:" + e.getMessage());
+        }
+        return stringData;
     }
 
 
@@ -149,7 +161,7 @@ public class UmengHttpClient {
             urlConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
             //加入你的access token 到header里面
             urlConnection.setRequestProperty("Authorization", accessToken);
-            System.out.println("token:"+accessToken);
+            System.out.println("token:" + accessToken);
             urlConnection.setConnectTimeout(7000);
             urlConnection.setReadTimeout(7000);
             urlConnection.setDoOutput(true);
