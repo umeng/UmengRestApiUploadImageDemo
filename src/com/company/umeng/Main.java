@@ -15,16 +15,18 @@ public class Main {
         // 首先把这里替换成你自己的app key
         UmengHttpClient.APP_KEY = "换成你的app key";
         UmengHttpClient.APP_SECRECT = "换成你的app secrect";
+
         // access token for upload image only
         String imageToken;
         //String uid = "55c2eb7d41db1a3bd94684fe";
         String feedId = "54d1967aee7850208e366c96";
-        // uploading image to
+
+        //创建UmengHttpClient请求对象，之后用此对象发送请求
         UmengHttpClient umengHttpClient = new UmengHttpClient();
 
         //#########################Example 1###############################
         //以下例子为如何获取 access_token;
-        //把要穿的数据放在hashmap中
+        //把要穿的数据放在HashMap中
         HashMap<String, Object> objectHashMap = new HashMap<String, Object>();
         objectHashMap.put("source_uid", "123491239324228");
         objectHashMap.put("source", "qq");

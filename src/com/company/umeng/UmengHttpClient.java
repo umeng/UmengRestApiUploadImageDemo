@@ -1,9 +1,10 @@
 package com.company.umeng;
 
-import org.json.JSONException;
+
 import org.json.JSONObject;
 
 import javax.net.ssl.HttpsURLConnection;
+
 import java.io.*;
 import java.net.*;
 
@@ -20,9 +21,15 @@ public class UmengHttpClient {
 
     public static final String SERVER_ADDRESS = "http://upload.wsq.umeng.com/api/proxy/upload";
     private static final String END = "\r\n";
+    private static final String TAG = "Umeng Request ";
+    //multipart post boundary
     private static String boundary = UUID.randomUUID().toString();
 
     public static String ACCESS_TOKEN = null;
+
+    public static int CONNECTION_TIME_OUT = 7000;
+
+    public static int SOCKET_TIME_OUT = 7000;
 
     public static String APP_KEY = null;
 
@@ -37,10 +44,10 @@ public class UmengHttpClient {
         String result = null;
         if (httpMethod == HttpMethod.GET || httpMethod == HttpMethod.DELETE) {
             fullUrl = fullUrl + buildParameter(ACCESS_TOKEN, APP_KEY, data);
-            System.out.println("umeng rest url:" + fullUrl);
+            System.out.println("Umeng rest url:" + fullUrl);
         } else {
             fullUrl = fullUrl + buildParameter(ACCESS_TOKEN, APP_KEY, null);
-            System.out.println("umeng rest url:" + fullUrl);
+            System.out.println("Umeng rest url:" + fullUrl);
         }
         HttpsURLConnection urlConnection;
         OutputStream outputStream;
@@ -55,11 +62,13 @@ public class UmengHttpClient {
             }
             if (urlConnection.getResponseCode() == 200) {
                 result = convertStreamToString(urlConnection.getInputStream());
+            }else{
+                System.out.println(TAG+" Response code:"+urlConnection.getResponseCode()+" msg:"+urlConnection.getResponseMessage());
             }
         } catch (MalformedURLException e) {
-            System.out.println(e.getMessage());
+            System.out.println(TAG+e.getMessage());
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            System.out.println(TAG+e.getMessage());
         }
         return result;
     }
@@ -75,7 +84,7 @@ public class UmengHttpClient {
         if (appKey != null && !appKey.equals("")) {
             sb.append("?ak=" + APP_KEY);
         } else {
-            System.out.println("umeng app key is empty or null");
+            System.out.println(TAG+" umeng app key is empty or null");
         }
         if (accessToken != null && !accessToken.equals("")) {
             sb.append("&access_token=" + ACCESS_TOKEN);
@@ -154,9 +163,8 @@ public class UmengHttpClient {
             urlConnection.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + boundary);
             //加入你的access token 到header里面
             urlConnection.setRequestProperty("Authorization", accessToken);
-            System.out.println("token:" + accessToken);
-            urlConnection.setConnectTimeout(7000);
-            urlConnection.setReadTimeout(7000);
+            urlConnection.setConnectTimeout(CONNECTION_TIME_OUT);
+            urlConnection.setReadTimeout(SOCKET_TIME_OUT);
             urlConnection.setDoOutput(true);
             Path path = Paths.get(pathOfImage);
 
@@ -174,16 +182,18 @@ public class UmengHttpClient {
             addBinaryParams(pathOfImage, outputStream, data);
 
             if (urlConnection.getResponseCode() == 200) {
-                System.out.println("upload success");
+                System.out.println(TAG+" upload success");
                 return convertStreamToString(urlConnection.getInputStream());
             } else {
-                System.out.println("upload fail" + convertStreamToString(urlConnection.getInputStream()));
+                System.out.println(TAG+" upload fail" + convertStreamToString(urlConnection.getInputStream()));
                 return convertStreamToString(urlConnection.getInputStream());
             }
 
         } catch (MalformedURLException e) {
-            System.out.println(e.getMessage());
+            System.out.println(TAG+e.getMessage());
         } catch (IOException e) {
+            System.out.println(e.getMessage());
+        } catch (NullPointerException e){
             System.out.println(e.getMessage());
         }
         return null;
@@ -276,7 +286,6 @@ public class UmengHttpClient {
             if (is != null) {
                 is.close();
             }
-
         }
         return sb.toString();
     }

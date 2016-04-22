@@ -31,11 +31,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/umeng/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.61085975">
-              <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,16 +53,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UmengHttpClient.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="UmengHttpClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/umeng/UmengHttpClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="209" column="5" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.06787331">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4660#4676#0" expanded="true" />
-                <element signature="e#9322#9323#0" expanded="true" />
-                <element signature="e#9371#9372#0" expanded="true" />
+                <element signature="e#4981#4997#0" expanded="true" />
+                <element signature="e#9717#9718#0" expanded="true" />
+                <element signature="e#9766#9767#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -99,8 +99,8 @@
         <option value="$PROJECT_DIR$/src/com/company/umeng/DingTalkEncryptor.java" />
         <option value="$PROJECT_DIR$/src/com/company/umeng/Base64.java" />
         <option value="$PROJECT_DIR$/src/com/company/umeng/AESUtils.java" />
-        <option value="$PROJECT_DIR$/src/com/company/umeng/UmengHttpClient.java" />
         <option value="$PROJECT_DIR$/src/com/company/umeng/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/company/umeng/UmengHttpClient.java" />
       </list>
     </option>
   </component>
@@ -117,7 +117,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="6" />
+    <option name="x" value="7" />
     <option name="y" value="23" />
     <option name="width" value="1268" />
     <option name="height" value="716" />
@@ -642,15 +642,15 @@
       <workItem from="1461069676780" duration="1697000" />
       <workItem from="1461118857061" duration="8579000" />
       <workItem from="1461135221492" duration="11043000" />
-      <workItem from="1461292431075" duration="2650000" />
+      <workItem from="1461292431075" duration="4709000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83112000" />
+    <option name="totallyTimeSpent" value="85171000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="6" y="23" width="1268" height="716" extended-state="0" />
+    <frame x="7" y="23" width="1268" height="716" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -747,9 +747,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4660#4676#0" expanded="true" />
-            <element signature="e#9322#9323#0" expanded="true" />
-            <element signature="e#9371#9372#0" expanded="true" />
+            <element signature="e#4981#4997#0" expanded="true" />
+            <element signature="e#9717#9718#0" expanded="true" />
+            <element signature="e#9766#9767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -770,9 +770,9 @@
           <caret line="138" column="51" selection-start-line="138" selection-start-column="51" selection-end-line="138" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4660#4676#0" expanded="true" />
-            <element signature="e#9322#9323#0" expanded="true" />
-            <element signature="e#9371#9372#0" expanded="true" />
+            <element signature="e#4981#4997#0" expanded="true" />
+            <element signature="e#9717#9718#0" expanded="true" />
+            <element signature="e#9766#9767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -803,9 +803,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4660#4676#0" expanded="true" />
-            <element signature="e#9322#9323#0" expanded="true" />
-            <element signature="e#9371#9372#0" expanded="true" />
+            <element signature="e#4981#4997#0" expanded="true" />
+            <element signature="e#9717#9718#0" expanded="true" />
+            <element signature="e#9766#9767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -836,9 +836,9 @@
           <caret line="133" column="46" selection-start-line="133" selection-start-column="46" selection-end-line="133" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4660#4676#0" expanded="true" />
-            <element signature="e#9322#9323#0" expanded="true" />
-            <element signature="e#9371#9372#0" expanded="true" />
+            <element signature="e#4981#4997#0" expanded="true" />
+            <element signature="e#9717#9718#0" expanded="true" />
+            <element signature="e#9766#9767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -859,9 +859,9 @@
           <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4660#4676#0" expanded="true" />
-            <element signature="e#9322#9323#0" expanded="true" />
-            <element signature="e#9371#9372#0" expanded="true" />
+            <element signature="e#4981#4997#0" expanded="true" />
+            <element signature="e#9717#9718#0" expanded="true" />
+            <element signature="e#9766#9767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -892,9 +892,9 @@
           <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4660#4676#0" expanded="true" />
-            <element signature="e#9322#9323#0" expanded="true" />
-            <element signature="e#9371#9372#0" expanded="true" />
+            <element signature="e#4981#4997#0" expanded="true" />
+            <element signature="e#9717#9718#0" expanded="true" />
+            <element signature="e#9766#9767#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -990,15 +990,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/umeng/UmengHttpClient.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/umeng/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="209" column="5" selection-start-line="209" selection-start-column="5" selection-end-line="209" selection-end-column="5" />
+          <caret line="38" column="34" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4660#4676#0" expanded="true" />
-            <element signature="e#9322#9323#0" expanded="true" />
-            <element signature="e#9371#9372#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1011,12 +1008,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/umeng/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/umeng/UmengHttpClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61085975">
-          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="34" />
+        <state vertical-scroll-proportion="0.06787331">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4981#4997#0" expanded="true" />
+            <element signature="e#9717#9718#0" expanded="true" />
+            <element signature="e#9766#9767#0" expanded="true" />
           </folding>
         </state>
       </provider>
