@@ -1,15 +1,23 @@
 # UmengRestApiUploadImageDemo
-友盟微社区RestApi图片上传Demo Java版本
+Java版RestAPi使用说明
+
+具体使用方法请参见/src/com/company/umeng/Main.java
 
 <pre><code>
-UploadImageDemo uploadImageDemo = new UploadImageDemo();
-HashMap map = new HashMap();
-//You can put argument into the hashmap,You don't have to put content and size, it is already been done for you.
-//你可以把图片上传的参数放进 hashmap里面，用一下方法。"content"和"size"不需要传，因为已经封装好了
-//map.put("dir","example_dir");
-//map.put("name","advertising.jpg");
-String result = uploadImageDemo.uploadImage(token,"/Users/umeng/Desktop/advertising.jpg",map);
-System.out.println(result);
+//在使用前需要先配置APP_KEY和APP_SECRECT
+UmengHttpClient.APP_KEY = "换成你的app key";
+UmengHttpClient.APP_SECRECT = "换成你的app secrect";
 </code></pre>
 
-# UmengRestApiUploadImageDemo
+<pre><code>
+//获取access_token
+HashMap<String, Object> objectHashMap = new HashMap<String, Object>();
+objectHashMap.put("source_uid", "123491239324228");
+objectHashMap.put("source", "qq");
+objectHashMap.put("name_l", "default");
+HashMap<String, Object> userInfoHashMap = new HashMap<String, Object>();
+userInfoHashMap.put("name", "username");
+userInfoHashMap.put("gender", 1);
+objectHashMap.put("user_info", userInfoHashMap);
+String token = umengHttpClient.accessTokenRequest(objectHashMap, "https://rest.wsq.umeng.com/0/get_access_token", UmengHttpClient.APP_SECRECT);
+</code></pre>
