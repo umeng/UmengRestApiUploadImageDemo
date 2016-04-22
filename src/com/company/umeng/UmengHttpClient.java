@@ -41,7 +41,11 @@ public class UmengHttpClient {
 
 
     public String sentRequest(String fullUrl, HttpMethod httpMethod, Map<String, Object> data) {
+        if(fullUrl==null){
+            return null;
+        }
         String result = null;
+
         if (httpMethod == HttpMethod.GET || httpMethod == HttpMethod.DELETE) {
             fullUrl = fullUrl + buildParameter(ACCESS_TOKEN, APP_KEY, data);
             System.out.println("Umeng rest url:" + fullUrl);
@@ -121,6 +125,9 @@ public class UmengHttpClient {
             case DELETE:
                 urlConnection.setRequestMethod("DELETE");
                 break;
+            default:
+                urlConnection.setRequestMethod("GET");
+                break;
         }
     }
 
@@ -193,7 +200,7 @@ public class UmengHttpClient {
             System.out.println(TAG+e.getMessage());
         } catch (IOException e) {
             System.out.println(e.getMessage());
-        } catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println(e.getMessage());
         }
         return null;
