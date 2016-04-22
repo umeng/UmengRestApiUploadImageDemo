@@ -23,7 +23,6 @@ public class UmengHttpClient {
     private static String boundary = UUID.randomUUID().toString();
 
     public static String ACCESS_TOKEN = null;
-    // this is for demo use
 
     public static String APP_KEY = null;
 
@@ -127,19 +126,13 @@ public class UmengHttpClient {
         String stringData = "";
         try {
             JSONObject jsonObject = new JSONObject(data);
-
-            if (jsonObject == null) {
-                return null;
-            }
             stringData = jsonObject.toString();
             String encry_data = AESUtils.getEncryptedMap(stringData.length() + stringData, APP_SECRET);
             HashMap<String, Object> hashMap = new HashMap<String, Object>();
             hashMap.put("encrypted_data", encry_data);
             return sentRequest(url, HttpMethod.POST, hashMap);
-        } catch (NullPointerException e) {
-            System.out.println("access token request ERROR:" + e.getMessage());
-        } catch (JSONException e) {
-            System.out.println("access token request ERROR:" + e.getMessage());
+        } catch (Exception e){
+            System.out.println("Umeng access token request error:"+e.getMessage());
         }
         return stringData;
     }

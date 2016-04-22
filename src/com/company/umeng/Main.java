@@ -33,7 +33,6 @@ public class Main {
         userInfoHashMap.put("name", "this is a test name");
         userInfoHashMap.put("gender", 1);
         objectHashMap.put("user_info", userInfoHashMap);
-
         String token = umengHttpClient.accessTokenRequest(objectHashMap, BASEURL + api3, UmengHttpClient.APP_SECRECT);
         System.out.println(token);
         JSONObject jsonObject = new JSONObject(token);
