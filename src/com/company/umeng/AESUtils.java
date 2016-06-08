@@ -42,7 +42,7 @@ public class AESUtils {
             IvParameterSpec iv = new IvParameterSpec(appSecret.getBytes(), 0, 16);
             cipher.init(Cipher.ENCRYPT_MODE, keySpec, iv);
             byte[] encrypted = cipher.doFinal(unencrypted);
-            String result = com.company.umeng.Base64.encodeToString(encrypted, com.company.umeng.Base64.NO_WRAP);
+            String result = com.company.umeng.Base64.encodeToString(encrypted, Base64.NO_WRAP);
             return result;
         } catch (Exception e) {
             System.out.println(e.getMessage());
