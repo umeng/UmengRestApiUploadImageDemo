@@ -93,6 +93,9 @@ public class UmengHttpClient {
         if (accessToken != null && !accessToken.equals("")) {
             sb.append("&access_token=" + ACCESS_TOKEN);
         }
+//        if (accessToken != null && !accessToken.equals("")) {
+//            sb.append("&aes_key_128=" + 16);
+//        }
         if (data != null && !data.isEmpty()) {
             Set<String> keySet = data.keySet();
             for (String key : keySet) {
@@ -143,9 +146,11 @@ public class UmengHttpClient {
         try {
             JSONObject jsonObject = new JSONObject(data);
             stringData = jsonObject.toString();
-            String encry_data = AESUtils.getEncryptedMap(stringData.length() + stringData, APP_SECRET);
+
+            String encry_data = AESUtils.getEncryptedMap(stringData.getBytes().length + stringData, APP_SECRET.substring(0,16));
             HashMap<String, Object> hashMap = new HashMap<String, Object>();
             hashMap.put("encrypted_data", encry_data);
+            hashMap.put("aes_key_128", 16);
             return sentRequest(url, HttpMethod.POST, hashMap);
         } catch (Exception e){
             System.out.println("Umeng access token request error:"+e.getMessage());

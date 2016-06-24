@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ImageUploadDemo.iml" filepath="$PROJECT_DIR$/ImageUploadDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UmengRestApiUploadImageDemo.iml" filepath="$PROJECT_DIR$/UmengRestApiUploadImageDemo.iml" />
     </modules>
   </component>
 </project>

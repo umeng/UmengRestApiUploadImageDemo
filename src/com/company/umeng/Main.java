@@ -7,15 +7,17 @@ import java.util.HashMap;
 
 public class Main {
     private static final String BASEURL = "https://rest.wsq.umeng.com";
+
     private static String api = "/0/image_token";
     private static String api2 = "/0/feed/favourites/create";
     private static String api3 = "/0/get_access_token";
 
     public static void main(String[] args) {
         // 首先把这里替换成你自己的app key
-        UmengHttpClient.APP_KEY = "换成你的app key";
-        UmengHttpClient.APP_SECRECT = "换成你的app secrect";
-
+        UmengHttpClient.APP_KEY = "54d19086fd98c540a2001155";
+        UmengHttpClient.APP_SECRECT = "de08937649e99e3c81d7924b145b3f79";
+//        UmengHttpClient.APP_KEY = "5292e17f56240b8ba110920c";
+//        UmengHttpClient.APP_SECRECT = "ab3ecfeeb46be257dfc880804c0264df";
         // access token for upload image only
         String imageToken;
         //String uid = "55c2eb7d41db1a3bd94684fe";
@@ -32,7 +34,7 @@ public class Main {
         objectHashMap.put("source", "qq");
         objectHashMap.put("name_l", "default");
         HashMap<String, Object> userInfoHashMap = new HashMap<String, Object>();
-        userInfoHashMap.put("name", "this is a test name");
+        userInfoHashMap.put("name", "name");
         userInfoHashMap.put("gender", 1);
         objectHashMap.put("user_info", userInfoHashMap);
         String token = umengHttpClient.accessTokenRequest(objectHashMap, BASEURL + api3, UmengHttpClient.APP_SECRECT);
