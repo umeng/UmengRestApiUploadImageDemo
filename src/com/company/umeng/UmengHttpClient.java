@@ -147,7 +147,10 @@ public class UmengHttpClient {
             JSONObject jsonObject = new JSONObject(data);
             stringData = jsonObject.toString();
 
+
             String encry_data = AESUtils.getEncryptedMap(stringData.getBytes().length + stringData, APP_SECRET.substring(0,16));
+
+
             HashMap<String, Object> hashMap = new HashMap<String, Object>();
             hashMap.put("encrypted_data", encry_data);
             hashMap.put("aes_key_128", 16);
