@@ -76,7 +76,42 @@ public class UmengHttpClient {
         }
         return result;
     }
+    public String sentRequestpoint(String fullUrl, HttpMethod httpMethod, Map<String, Object> data) {
+        if(fullUrl==null){
+            return null;
+        }
+        String result = null;
 
+        if (httpMethod == HttpMethod.GET || httpMethod == HttpMethod.DELETE) {
+            fullUrl = fullUrl + buildParameter(ACCESS_TOKEN, APP_KEY, data);
+            System.out.println("Umeng rest url:" + fullUrl);
+        } else {
+            fullUrl = fullUrl + buildParameter(ACCESS_TOKEN, APP_KEY, data);
+            System.out.println("Umeng rest url:" + fullUrl);
+        }
+        HttpURLConnection urlConnection;
+        OutputStream outputStream;
+        try {
+            urlConnection = (HttpURLConnection) new URL(fullUrl).openConnection();
+            setRequestMethod(httpMethod, urlConnection);
+            if (HttpMethod.POST == httpMethod || HttpMethod.PUT == httpMethod) {
+                outputStream = new DataOutputStream(urlConnection.getOutputStream());
+                outputStream.write(buildParameter(null, null, null).getBytes("UTF-8"));
+                outputStream.flush();
+                outputStream.close();
+            }
+            if (urlConnection.getResponseCode() == 200) {
+                result = convertStreamToString(urlConnection.getInputStream());
+            }else{
+                System.out.println(TAG+" Response code:"+urlConnection.getResponseCode()+" msg:"+urlConnection.getResponseMessage());
+            }
+        } catch (MalformedURLException e) {
+            System.out.println(TAG+e.getMessage());
+        } catch (IOException e) {
+            System.out.println(TAG+e.getMessage());
+        }
+        return result;
+    }
     /**
      * @param accessToken
      * @param appKey
@@ -88,7 +123,7 @@ public class UmengHttpClient {
         if (appKey != null && !appKey.equals("")) {
             sb.append("?ak=" + APP_KEY);
         } else {
-            System.out.println(TAG+" umeng app key is empty or null");
+         //   System.out.println(TAG+" umeng app key is empty or null");
         }
         if (accessToken != null && !accessToken.equals("")) {
             sb.append("&access_token=" + ACCESS_TOKEN);
